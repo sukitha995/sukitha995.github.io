@@ -11,14 +11,11 @@ import {
   Newspaper,
   BarChart3,
   GraduationCap,
-  Trophy,
-  Award,
-  X,
-  FileText
+  Trophy
 } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './brand-icons.jsx'
 import { ScrollNav, Hero, About, Skills, SectionHeading, Reveal } from './sections.jsx'
-import { LINKS, PROJECTS, EDUCATION, ACHIEVEMENTS, CERTIFICATIONS, RESUME_URL } from './data.js'
+import { LINKS, PROJECTS, EDUCATION, ACHIEVEMENTS, RESUME_URL } from './data.js'
 
 const PROJECT_ICONS = {
   'phone-call': PhoneCall,
@@ -122,82 +119,7 @@ function Projects() {
   )
 }
 
-function CertModal({ cert, onClose }) {
-  const closeRef = useRef(null)
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
-    closeRef.current?.focus()
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
-    }
-  }, [onClose])
-
-  if (!cert) return null
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={`${cert.name} certificate preview`}
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-xl border border-line bg-card shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-3">
-          <h4 className="min-w-0 flex-1 truncate text-sm font-semibold">{cert.name}</h4>
-          <button
-            ref={closeRef}
-            type="button"
-            onClick={onClose}
-            aria-label="Close certificate preview"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-line text-muted transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
-          >
-            <X size={16} aria-hidden="true" />
-          </button>
-        </div>
-        <iframe
-          src={cert.file}
-          title={`${cert.name} certificate PDF`}
-          className="h-[62vh] w-full flex-1 bg-white"
-        />
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-5 py-3">
-          <p className="text-xs text-muted">{cert.issuer}</p>
-          <div className="flex gap-2">
-            <a
-              href={cert.drive}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-line px-4 py-2 text-xs font-semibold text-ink transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
-            >
-              <ExternalLink size={14} aria-hidden="true" />
-              View in Drive
-            </a>
-            <a
-              href={cert.file}
-              download
-              className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-xs font-semibold text-background transition-all duration-300 hover:bg-accent-bright focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
-            >
-              <Download size={14} aria-hidden="true" />
-              Download PDF
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function Experience() {
-  const [activeCert, setActiveCert] = useState(null)
   return (
     <section id="experience" className="scroll-mt-24 border-b border-line">
       <div className="mx-auto max-w-4xl px-6 py-24">
@@ -231,46 +153,8 @@ function Experience() {
         </ol>
 
         <h3 className="mb-8 mt-16 flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-widest text-muted">
-          <Award size={16} aria-hidden="true" />
-          Certifications
-        </h3>
-        <div className="grid gap-4 sm:grid-cols-3">
-          {CERTIFICATIONS.map((cert, index) => (
-            <Reveal key={cert.id} delay={(index % 3) * 80}>
-              <article className="group flex h-full flex-col rounded-lg border border-line bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md border border-accent/30 bg-background text-accent transition-transform duration-300 group-hover:scale-110">
-                  <Award size={22} aria-hidden="true" />
-                </div>
-                <h4 className="mb-1 font-semibold leading-snug">{cert.name}</h4>
-                <p className="mb-4 text-sm text-muted">{cert.issuer}</p>
-                <div className="mt-auto flex gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setActiveCert(cert)}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-md border border-line px-3 py-2 text-xs font-semibold text-ink transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
-                  >
-                    <FileText size={14} aria-hidden="true" />
-                    Preview
-                  </button>
-                  <a
-                    href={cert.drive}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${cert.name} on Google Drive (opens in a new tab)`}
-                    className="inline-flex items-center justify-center gap-2 rounded-md border border-line px-3 py-2 text-xs font-semibold text-muted transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
-                  >
-                    <ExternalLink size={14} aria-hidden="true" />
-                    Drive
-                  </a>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-
-        <h3 className="mb-8 mt-16 flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-widest text-muted">
           <Trophy size={16} aria-hidden="true" />
-          Achievements
+          Achievements & Certifications
         </h3>
         <ul className="grid gap-4 sm:grid-cols-2">
           {ACHIEVEMENTS.map((item, index) => (
@@ -286,7 +170,6 @@ function Experience() {
           ))}
         </ul>
       </div>
-      <CertModal cert={activeCert} onClose={() => setActiveCert(null)} />
     </section>
   )
 }
