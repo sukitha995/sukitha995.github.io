@@ -135,47 +135,6 @@ export function Typewriter({ text }) {
   )
 }
 
-export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [progress, setProgress] = useState(0)
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 12)
-      const max = document.documentElement.scrollHeight - window.innerHeight
-      setProgress(max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  return (
-    <header
-      id="site-header"
-      className={`fixed inset-x-0 top-0 z-50 flex items-center border-b transition-all duration-300 ${
-        scrolled
-          ? 'border-line bg-background/90 backdrop-blur-md shadow-lg shadow-black/20'
-          : 'border-transparent bg-background/50 backdrop-blur-sm'
-      }`}
-    >
-      <div
-        className="absolute inset-x-0 top-0 h-0.5 bg-accent transition-[width] duration-150 ease-out"
-        style={{ width: `${progress}%` }}
-        aria-hidden="true"
-      />
-      <div className="mx-auto w-full max-w-6xl px-6 py-4">
-        <a
-          href="#home"
-          className="rounded text-lg font-bold tracking-tight focus:outline-none focus:ring-2 focus:ring-accent"
-        >
-          <span className="text-accent">KS.</span>
-        </a>
-      </div>
-    </header>
-  )
-}
-
 export function ScrollNav() {
   const [active, setActive] = useState('#home')
 
