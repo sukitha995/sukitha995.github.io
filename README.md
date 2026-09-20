@@ -9,7 +9,7 @@ Personal developer portfolio built with **React + Vite + Tailwind CSS + lucide-r
 - Tailwind CSS v4
 - lucide-react (icons)
 
-No backend, no heavy frameworks. Interactivity is implemented with React state/hooks and small utilities:
+Interactivity is implemented with React state/hooks and small utilities:
 
 - Hero typewriter effect + animated gradient role text
 - Particle-network background (canvas) + mouse-follow glow in the Hero
