@@ -156,6 +156,54 @@ body {
   color: var(--color-accent);
 }
 
+/* --- Right-corner scroll navigation (dots) --- */
+.scroll-nav {
+  margin-top: 2rem;
+}
+.scroll-dot {
+  position: relative;
+  outline: none;
+}
+.scroll-dot::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  border: 2px solid var(--color-accent);
+  background: var(--color-background);
+  display: block;
+  margin-left: auto;
+  transition: all 0.3s ease;
+}
+.scroll-dot:hover::before,
+.scroll-dot.is-active::before {
+  background: var(--color-accent);
+  box-shadow: 0 0 14px -2px var(--color-accent);
+  transform: scale(1.25);
+}
+.scroll-dot-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  padding: 0.3rem 0.65rem;
+  border-radius: 0.375rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.scroll-dot:hover .scroll-dot-label,
+.scroll-dot:focus-visible .scroll-dot-label,
+.scroll-dot.is-active .scroll-dot-label {
+  opacity: 1;
+}
+
 /* --- Back to top --- */
 #back-to-top {
   opacity: 0.4;

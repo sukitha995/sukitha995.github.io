@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import {
-  Menu,
-  X,
   ArrowDown,
   Download,
   Mail,
@@ -138,10 +136,8 @@ export function Typewriter({ text }) {
 }
 
 export function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [progress, setProgress] = useState(0)
-  const [active, setActive] = useState('#home')
 
   useEffect(() => {
     const onScroll = () => {
@@ -153,6 +149,35 @@ export function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  return (
+    <header
+      id="site-header"
+      className={`fixed inset-x-0 top-0 z-50 flex items-center border-b transition-all duration-300 ${
+        scrolled
+          ? 'border-line bg-background/90 backdrop-blur-md shadow-lg shadow-black/20'
+          : 'border-transparent bg-background/50 backdrop-blur-sm'
+      }`}
+    >
+      <div
+        className="absolute inset-x-0 top-0 h-0.5 bg-accent transition-[width] duration-150 ease-out"
+        style={{ width: `${progress}%` }}
+        aria-hidden="true"
+      />
+      <div className="mx-auto w-full max-w-6xl px-6 py-4">
+        <a
+          href="#home"
+          className="rounded text-lg font-bold tracking-tight focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          <span className="text-accent">KS.</span>
+        </a>
+      </div>
+    </header>
+  )
+}
+
+export function ScrollNav() {
+  const [active, setActive] = useState('#home')
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -171,77 +196,26 @@ export function Navbar() {
   }, [])
 
   return (
-    <header
-      id="site-header"
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
-        scrolled
-          ? 'border-line bg-background/90 backdrop-blur-md shadow-lg shadow-black/20'
-          : 'border-transparent bg-background/50 backdrop-blur-sm'
-      }`}
+    <nav
+      aria-label="Section navigation"
+      className="scroll-nav fixed right-5 top-1/2 z-40 flex -translate-y-1/2 flex-col items-end gap-3"
     >
-      <div
-        className="h-0.5 bg-accent transition-[width] duration-150 ease-out"
-        style={{ width: `${progress}%` }}
-        aria-hidden="true"
-      />
-      <nav
-        aria-label="Main navigation"
-        className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
-      >
-        <a
-          href="#home"
-          className="rounded text-lg font-bold tracking-tight focus:outline-none focus:ring-2 focus:ring-accent"
-        >
-          <span className="text-accent">KS.</span>
-        </a>
-
-        <ul className="hidden items-center gap-7 md:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                aria-current={active === link.href ? 'true' : undefined}
-                className={`nav-link ${active === link.href ? 'is-active' : ''} rounded text-sm text-muted transition-colors duration-300 hover:text-ink focus:outline-none focus:ring-2 focus:ring-accent`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <button
-          id="nav-toggle"
-          type="button"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-          aria-controls="mobile-menu"
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-line text-ink transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent md:hidden"
-        >
-          {menuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
-        </button>
-      </nav>
-
-      <div
-        id="mobile-menu"
-        className={`${menuOpen ? 'open' : ''} border-t border-line md:hidden`}
-      >
-        <ul className="mx-auto max-w-6xl space-y-1 px-4 py-4">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                aria-current={active === link.href ? 'true' : undefined}
-                className={`nav-link ${active === link.href ? 'is-active' : ''} block rounded-md px-4 py-3 text-muted transition-colors duration-300 hover:bg-card hover:text-ink focus:outline-none focus:ring-2 focus:ring-accent`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </header>
+      {NAV_LINKS.map((link) => {
+        const isActive = active === link.href
+        return (
+          <a
+            key={link.href}
+            href={link.href}
+            aria-label={`Go to ${link.label}`}
+            aria-current={isActive ? 'true' : undefined}
+            title={link.label}
+            className={`scroll-dot ${isActive ? 'is-active' : ''} flex items-center gap-2 rounded-full`}
+          >
+            <span className="scroll-dot-label">{link.label}</span>
+          </a>
+        )
+      })}
+    </nav>
   )
 }
 

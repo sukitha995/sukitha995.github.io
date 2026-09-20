@@ -17,7 +17,7 @@ import {
   FileText
 } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './brand-icons.jsx'
-import { Navbar, Hero, About, Skills, SectionHeading, Reveal } from './sections.jsx'
+import { Navbar, ScrollNav, Hero, About, Skills, SectionHeading, Reveal } from './sections.jsx'
 import { LINKS, PROJECTS, EDUCATION, ACHIEVEMENTS, CERTIFICATIONS, RESUME_URL } from './data.js'
 
 const PROJECT_ICONS = {
@@ -415,6 +415,7 @@ export default function App() {
         Skip to content
       </a>
       <Navbar />
+      <ScrollNav />
       <main>
         <Hero />
         <About />

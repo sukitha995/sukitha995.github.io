@@ -14,7 +14,7 @@ Interactivity is implemented with React state/hooks and small utilities:
 - Hero typewriter effect + animated gradient role text
 - Particle-network background (canvas) + mouse-follow glow in the Hero
 - Reveal-on-scroll (IntersectionObserver) across all sections
-- Scroll-progress bar, scroll-aware navbar, active-section highlighting
+- Scroll-progress bar, fixed brand header, and right-corner scroll-spy dot navigation with active-section highlighting
 - Combined skills chips with per-skill lucide icons, unique colors, and color transitions
 - 3D tilt cards on projects, back-to-top button
 - `prefers-reduced-motion` respected
