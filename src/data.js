@@ -20,22 +20,22 @@ export const NAV_LINKS = [
 export const SKILL_GROUPS = [
   {
     title: 'Languages',
-    icon: 'fa-solid fa-code',
+    icon: 'code',
     skills: ['Java', 'Python', 'JavaScript', 'SQL']
   },
   {
     title: 'Frameworks / Libraries',
-    icon: 'fa-solid fa-layer-group',
+    icon: 'layers',
     skills: ['Pandas', 'NumPy', 'Scikit-learn', 'TabNet', 'PyTorch', 'XGBoost']
   },
   {
     title: 'Cloud & DevOps',
-    icon: 'fa-solid fa-cloud',
+    icon: 'cloud',
     skills: ['Azure (Data Fundamentals)', 'GitHub Actions', 'ThingSpeak', 'Google Colab']
   },
   {
     title: 'Data / AI',
-    icon: 'fa-solid fa-brain',
+    icon: 'brain',
     skills: [
       'SHAP',
       'ETL',
@@ -50,7 +50,7 @@ export const SKILL_GROUPS = [
 export const PROJECTS = [
   {
     number: '01',
-    icon: 'fa-solid fa-phone-volume',
+    icon: 'phone',
     title: 'Telecom Customer Churn Prediction System',
     description:
       'Built a predictive machine learning system using an XGBoost & Random Forest voting ensemble to identify high-risk subscribers, achieving an 85.8% ROC-AUC. Integrated TabNet deep learning and SHAP analysis to decode critical churn drivers.',
@@ -59,7 +59,7 @@ export const PROJECTS = [
   },
   {
     number: '02',
-    icon: 'fa-solid fa-chart-pie',
+    icon: 'pie',
     title: 'Online Customer Segmentation using RFM & K-Means',
     description:
       'Executed data mining and customer profiling via RFM metrics and standard scaling. Applied the Elbow Method with K-Means clustering to distinguish unique customer segments, translating high-ticket behavior into interactive Power BI marketing dashboards.',
@@ -68,7 +68,7 @@ export const PROJECTS = [
   },
   {
     number: '03',
-    icon: 'fa-solid fa-heart-pulse',
+    icon: 'heart',
     title: 'IoT-Based Smart Health Monitoring Prototype',
     description:
       'Engineered an end-to-end hardware-to-cloud telemetry engine utilizing Arduino Uno, Raspberry Pi, and PySerial to calculate real-time BPM and environmental variables. Structured a REST API connector streaming values to ThingSpeak with automated bradycardia/tachycardia alerts.',
@@ -77,7 +77,7 @@ export const PROJECTS = [
   },
   {
     number: '04',
-    icon: 'fa-solid fa-utensils',
+    icon: 'utensils',
     title: 'Diet Recommendation System',
     description:
       'Structured data schemas and algorithmic processing architectures to serve dynamic health and dietary recommendations based on user macro targets. Separated structural code across a dedicated backend and frontend framework wrapper.',
@@ -86,7 +86,7 @@ export const PROJECTS = [
   },
   {
     number: '05',
-    icon: 'fa-solid fa-newspaper',
+    icon: 'news',
     title: 'Fake News Detection Engine',
     description:
       'Configured natural language processing pipelines using TF-IDF text vectorization to classify informational integrity. Evaluated Logistic Regression, Naive Bayes, and Random Forest architectures alongside visual WordCloud insights.',
@@ -95,7 +95,7 @@ export const PROJECTS = [
   },
   {
     number: '06',
-    icon: 'fa-solid fa-chart-column',
+    icon: 'chart',
     title: 'Amazon Sales Power BI Dashboard',
     description:
       'Processed transactional datasets to model revenue shifts and order metrics using Excel preprocessing. Created multidimensional reports plotting categorical distributions, geometric sales weights, and seasonal profit quarters.',
@@ -145,8 +145,8 @@ export const ACHIEVEMENTS = [
 ]
 
 export const HIGHLIGHT_AREAS = [
-  { text: 'Software Engineering', icon: 'fa-solid fa-code' },
-  { text: 'AI / Machine Learning', icon: 'fa-solid fa-brain' },
-  { text: 'Data Analytics', icon: 'fa-solid fa-chart-line' },
-  { text: 'Cloud Computing', icon: 'fa-solid fa-cloud' }
+  { text: 'Software Engineering', icon: 'code' },
+  { text: 'AI / Machine Learning', icon: 'brain' },
+  { text: 'Data Analytics', icon: 'chart' },
+  { text: 'Cloud Computing', icon: 'cloud' }
 ]

@@ -7,9 +7,9 @@ Personal developer portfolio built with **React + Vite + Tailwind CSS** (dark mo
 - React (JavaScript / JSX)
 - Vite (dev + build tool)
 - Tailwind CSS v4
-- Font Awesome (CDN icons)
+- lucide-react (icons)
 
-No backend, no animation libraries, minimal dependencies.
+No backend, no animation libraries, minimal dependencies. Interactivity is handled with React state and light `IntersectionObserver`-based reveal-on-scroll transitions.
 
 ## Run locally
 
@@ -43,7 +43,7 @@ portfolio/
 └── src/
     ├── main.jsx
     ├── App.jsx       # App shell + Projects, Experience, Contact, Footer
-    ├── sections.jsx  # Navbar, Hero, About, Skills
+    ├── sections.jsx  # Navbar, Hero, About, Skills + Reveal/SectionHeading
     ├── data.js       # all content (skills, projects, education, achievements)
     └── index.css     # Tailwind theme + base styles
 ```
@@ -51,7 +51,8 @@ portfolio/
 ## Customization
 
 - **Content**: edit the data arrays in `src/data.js` (name, links, skills, projects, education, achievements).
-- **Headshot**: replace `public/profile-placeholder.svg` with a real photograph (same position, keep the filename) — the SVG placeholder already uses the initials "KS".
+- **Headshot**: replace `public/profile.jpg` with your real photograph (keep the filename). The `/src` code falls back to `public/profile-placeholder.svg` if the photo is missing.
+- **Resume**: update `RESUME_URL` in `src/data.js`.
 
 ## Resume
 
