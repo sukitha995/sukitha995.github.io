@@ -1,15 +1,23 @@
 # Kothuru Sukitha — Portfolio
 
-Personal developer portfolio built with **Astro + Tailwind CSS + lucide-react icons** (dark mode, single page, static — deployed to GitHub Pages).
+Personal developer portfolio built with **React + Vite + Tailwind CSS + lucide-react** (dark mode, single page, static — deployed to GitHub Pages).
 
 ## Stack
 
-- Astro (static site generator — framework-light, no heavy client runtime)
+- React (JavaScript / JSX)
+- Vite (dev + build tool)
 - Tailwind CSS v4
-- lucide icons via `astro-icon` (`@iconify-json/lucide`, build-time only)
-- Interactivity with a small vanilla JS script (`src/scripts/main.js`): mobile menu, scroll-aware navbar, scroll progress, active-section highlighting, reveal-on-scroll, hero typewriter, particle background, back-to-top
+- lucide-react (icons)
 
-No React islands were needed — the site is fully static with minimal inline JS.
+No backend, no heavy frameworks. Interactivity is implemented with React state/hooks and small utilities:
+
+- Hero typewriter effect + animated gradient role text
+- Particle-network background (canvas) + mouse-follow glow in the Hero
+- Reveal-on-scroll (IntersectionObserver) across all sections
+- Scroll-progress bar, scroll-aware navbar, active-section highlighting
+- Combined skills chips with per-skill lucide icons, unique colors, and color transitions
+- 3D tilt cards on projects, back-to-top button
+- `prefers-reduced-motion` respected
 
 ## Run locally
 
@@ -25,33 +33,34 @@ npm run build
 npm run preview
 ```
 
-`astro.config.mjs` sets `site` to `https://sukitha995.github.io` with `base: "/"`, so the output works on GitHub Pages.
+Vite uses `base: "./"`, so `dist/` works on GitHub Pages project sites.
 
 ## Deploy to GitHub Pages
 
-`.github/workflows/deploy.yml` runs `npm ci && npm run build` on every push to `main` and deploys `dist/` via the Pages API.
+`.github/workflows/deploy.yml` runs `npm ci && npm run build` on every push to `main` and deploys `dist/`.
 
 ## Structure
 
 ```
 portfolio/
-├── astro.config.mjs
 ├── package.json
+├── vite.config.js
+├── index.html
 ├── public/
 │   ├── profile.jpg             # real headshot (photo)
 │   └── profile-placeholder.svg # fallback "KS" placeholder
 └── src/
+    ├── main.jsx
+    ├── App.jsx                 # Projects, Experience, Contact, Footer + tilt/back-to-top
+    ├── sections.jsx            # Navbar, Hero, About, Skills + Reveal/SectionHeading/Typewriter
+    ├── brand-icons.jsx         # inline GitHub/LinkedIn SVGs (removed from lucide v1)
     ├── data.js                 # all content (skills, projects, education, achievements)
-    ├── styles/global.css       # Tailwind theme + base styles
-    ├── scripts/main.js         # client-side interactivity (vanilla)
-    ├── layouts/Layout.astro    # SEO head + shared script
-    ├── components/             # Navbar, Hero, About, Skills, Projects, Experience, Contact, Footer, BrandIcon
-    └── pages/index.astro       # page assembling the sections
+    └── index.css               # Tailwind theme + custom effects
 ```
 
 ## Customization
 
 - **Content**: edit `src/data.js` (name, links, skills, projects, education, achievements).
-- **Headshot**: replace `public/profile.jpg` with your real photograph (keep the filename). The page falls back to `public/profile-placeholder.svg` if the photo is missing.
+- **Headshot**: replace `public/profile.jpg` (keep the filename) — falls back to `profile-placeholder.svg` if missing.
 - **Resume**: update `RESUME_URL` in `src/data.js`.
-- **Icons**: configured in `astro.config.mjs` under the `astro-icon` `include` block (lucide set).
+- **Skill chips**: each entry in `SKILLS` has `name`, `icon` (lucide key), and `color` (hex) driving the icon color + hover transition.

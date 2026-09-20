@@ -43,7 +43,7 @@ body {
   background: var(--color-subtle);
 }
 
-/* Hero */
+/* --- Hero --- */
 .hero-role {
   background: linear-gradient(90deg, #22d3ee, #38bdf8, #818cf8, #22d3ee);
   background-size: 200% auto;
@@ -52,7 +52,6 @@ body {
   color: transparent;
   animation: gradient-move 8s linear infinite;
 }
-
 @keyframes gradient-move {
   to {
     background-position: 200% center;
@@ -68,14 +67,36 @@ body {
   background: var(--color-accent-bright);
   animation: caret-blink 1s steps(1) infinite;
 }
-
 @keyframes caret-blink {
   50% {
     opacity: 0;
   }
 }
 
-/* Reveal on scroll */
+.hero-fade {
+  opacity: 0;
+  animation: hero-in 0.8s ease forwards;
+}
+@keyframes hero-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-glow {
+  position: absolute;
+  pointer-events: none;
+  width: 420px;
+  height: 420px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.14), transparent 65%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+/* --- Reveal on scroll --- */
 .reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -89,18 +110,37 @@ body {
   transform: translateY(0);
 }
 
-/* Hero entrance */
-.hero-fade {
-  opacity: 0;
-  animation: hero-in 0.8s ease forwards;
+/* --- Skill chips (combined, per-skill color) --- */
+.skill-chip {
+  --c: #22d3ee;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1.05rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-line);
+  color: var(--color-muted);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+  cursor: default;
 }
-@keyframes hero-in {
-  to {
-    opacity: 1;
-  }
+.skill-chip:hover {
+  color: var(--color-ink);
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 16%, transparent);
+  box-shadow: 0 0 26px -6px var(--c);
+  transform: translateY(-3px);
+}
+.skill-chip .chip-icon {
+  color: var(--c);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.skill-chip:hover .chip-icon {
+  transform: scale(1.2) rotate(-8deg);
 }
 
-/* Navbar states */
+/* --- Navbar states --- */
 #site-header.scrolled {
   background: rgb(11 15 25 / 0.9);
   border-color: var(--color-line);
@@ -116,7 +156,7 @@ body {
   color: var(--color-accent);
 }
 
-/* Back to top */
+/* --- Back to top --- */
 #back-to-top {
   opacity: 0.4;
 }
@@ -125,6 +165,14 @@ body {
   border-color: var(--color-accent);
   background: rgb(6 182 212 / 0.1);
   color: var(--color-accent);
+}
+
+/* --- Tilt cards --- */
+.tilt-card {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+    translateZ(0);
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -143,18 +191,15 @@ body {
     transform: none;
   }
   .hero-role,
-  .hero-fade {
+  .hero-fade,
+  .type-caret {
     animation: none;
     opacity: 1;
   }
   .type-caret {
     display: none;
   }
-}
-
-/* Particle canvas */
-#particles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+  .tilt-card {
+    transform: none;
+  }
 }

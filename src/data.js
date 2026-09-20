@@ -17,34 +17,27 @@ export const NAV_LINKS = [
   { label: 'Contact', href: '#contact' }
 ]
 
-export const SKILL_GROUPS = [
-  {
-    title: 'Languages',
-    icon: 'code-2',
-    skills: ['Java', 'Python', 'JavaScript', 'SQL']
-  },
-  {
-    title: 'Frameworks / Libraries',
-    icon: 'layers',
-    skills: ['Pandas', 'NumPy', 'Scikit-learn', 'TabNet', 'PyTorch', 'XGBoost']
-  },
-  {
-    title: 'Cloud & DevOps',
-    icon: 'cloud',
-    skills: ['Azure (Data Fundamentals)', 'GitHub Actions', 'ThingSpeak', 'Google Colab']
-  },
-  {
-    title: 'Data / AI',
-    icon: 'brain',
-    skills: [
-      'SHAP',
-      'ETL',
-      'RFM Analysis',
-      'Natural Language Processing (NLP)',
-      'TF-IDF Vectorization',
-      'K-Means Clustering'
-    ]
-  }
+export const SKILLS = [
+  { name: 'Java', icon: 'coffee', color: '#f59e0b' },
+  { name: 'Python', icon: 'terminal', color: '#38bdf8' },
+  { name: 'JavaScript', icon: 'braces', color: '#facc15' },
+  { name: 'SQL', icon: 'database', color: '#34d399' },
+  { name: 'Pandas', icon: 'table', color: '#60a5fa' },
+  { name: 'NumPy', icon: 'calculator', color: '#818cf8' },
+  { name: 'Scikit-learn', icon: 'flask', color: '#2dd4bf' },
+  { name: 'TabNet', icon: 'network', color: '#22d3ee' },
+  { name: 'PyTorch', icon: 'flame', color: '#fb923c' },
+  { name: 'XGBoost', icon: 'zap', color: '#a3e635' },
+  { name: 'Azure (Data Fundamentals)', icon: 'cloud', color: '#a78bfa' },
+  { name: 'GitHub Actions', icon: 'gitbranch', color: '#c084fc' },
+  { name: 'ThingSpeak', icon: 'activity', color: '#f87171' },
+  { name: 'Google Colab', icon: 'notebook', color: '#f472b6' },
+  { name: 'SHAP', icon: 'gauge', color: '#e879f9' },
+  { name: 'ETL', icon: 'workflow', color: '#fb7185' },
+  { name: 'RFM Analysis', icon: 'pie', color: '#fb923c' },
+  { name: 'Natural Language Processing (NLP)', icon: 'messages', color: '#7dd3fc' },
+  { name: 'TF-IDF Vectorization', icon: 'sigma', color: '#67e8f9' },
+  { name: 'K-Means Clustering', icon: 'circledot', color: '#4ade80' }
 ]
 
 export const PROJECTS = [

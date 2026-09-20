@@ -1,21 +1,23 @@
 {
   "name": "kothuru-sukitha-portfolio",
   "type": "module",
-  "version": "2.0.0",
-  "description": "Personal developer portfolio of Kothuru Sukitha — Computer Science & AI/ML Engineer.",
+  "version": "3.0.0",
+  "description": "Personal developer portfolio of Kothuru Sukitha — Computer Science Engineer.",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "astro": "^7.3.3",
-    "@tailwindcss/vite": "^4.3.3",
-    "tailwindcss": "^4.3.3"
+    "lucide-react": "^1.47.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "astro-icon": "^1.1.5",
-    "@iconify-json/lucide": "^1.2.43"
+    "@tailwindcss/vite": "^4.1.11",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.1.11",
+    "vite": "^6.3.5"
   }
 }
