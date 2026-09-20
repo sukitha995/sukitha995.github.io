@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Navbar from '../components/Navbar.astro'
+import Hero from '../components/Hero.astro'
+import About from '../components/About.astro'
+import Skills from '../components/Skills.astro'
+import Projects from '../components/Projects.astro'
+import Experience from '../components/Experience.astro'
+import Contact from '../components/Contact.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout>
+  <a
+    href="#home"
+    class="sr-only rounded-md bg-accent px-4 py-2 text-background focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60]"
+  >
+    Skip to content
+  </a>
+  <Navbar />
+  <main>
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Experience />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>

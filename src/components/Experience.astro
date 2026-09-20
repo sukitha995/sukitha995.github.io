@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components'
+import { EDUCATION, ACHIEVEMENTS } from '../data.js'
+---
+
+<section id="experience" class="scroll-mt-24 border-b border-line">
+  <div class="mx-auto max-w-4xl px-6 py-24">
+    <div class="reveal mx-auto mb-12 max-w-2xl text-center">
+      <p class="mb-2 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-accent">
+        <Icon name="lucide:sparkles" class="h-3.5 w-3.5" aria-hidden="true" />
+        Experience
+      </p>
+      <h2 class="text-3xl font-bold sm:text-4xl">Education & Achievements</h2>
+      <p class="mt-4 text-muted">Academic background and recognition.</p>
+    </div>
+
+    <h3 class="reveal mb-8 flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-widest text-muted">
+      <Icon name="lucide:graduation-cap" class="h-4 w-4" aria-hidden="true" />
+      Education
+    </h3>
+    <ol class="relative ml-3 space-y-8 border-l border-line pl-8">
+      {
+        EDUCATION.map((entry, index) => (
+          <li class="reveal relative" style={`--reveal-delay: ${index * 80}ms`}>
+            <span
+              class="absolute -left-[41px] top-1 h-3 w-3 rounded-full border-2 border-accent bg-background"
+              aria-hidden="true"
+            ></span>
+            <p class="text-xs font-medium uppercase tracking-wide text-accent">{entry.period}</p>
+            <h4 class="mt-1 text-lg font-semibold">{entry.title}</h4>
+            <p class="text-sm text-muted">{entry.org}</p>
+            <p class="mt-1 text-sm font-medium text-accent-bright">{entry.detail}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <h3 class="reveal mb-8 mt-16 flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-widest text-muted">
+      <Icon name="lucide:trophy" class="h-4 w-4" aria-hidden="true" />
+      Achievements & Certifications
+    </h3>
+    <ul class="grid gap-4 sm:grid-cols-2">
+      {
+        ACHIEVEMENTS.map((item, index) => (
+          <li
+            class="reveal flex h-full items-start gap-4 rounded-lg border border-line bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+            style={`--reveal-delay: ${(index % 2) * 80}ms`}
+          >
+            <span class="mt-0.5 shrink-0 text-accent">
+              <Icon name="lucide:trophy" class="h-5 w-5" aria-hidden="true" />
+            </span>
+            <div>
+              <p class="font-semibold">{item.badge}</p>
+              <p class="mt-1 text-sm text-muted">{item.detail}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

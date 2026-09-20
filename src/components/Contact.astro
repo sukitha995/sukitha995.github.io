@@ -1,0 +1,66 @@
+---
+import { Icon } from 'astro-icon/components'
+import { LINKS, RESUME_URL } from '../data.js'
+import BrandIcon from './BrandIcon.astro'
+---
+
+<section id="contact" class="scroll-mt-24">
+  <div class="mx-auto max-w-3xl px-6 py-24 text-center">
+    <div class="reveal mx-auto mb-12 max-w-2xl text-center">
+      <p class="mb-2 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-accent">
+        <Icon name="lucide:sparkles" class="h-3.5 w-3.5" aria-hidden="true" />
+        Contact
+      </p>
+      <h2 class="text-3xl font-bold sm:text-4xl">Let's Build Something Meaningful</h2>
+    </div>
+
+    <div class="reveal">
+      <p class="mx-auto max-w-xl text-muted">
+        Interested in collaborating on AI, data, or software projects — or looking for an engineer
+        who can turn complex problems into working systems? Let's connect.
+      </p>
+    </div>
+
+    <div class="reveal mt-10 flex flex-wrap items-center justify-center gap-4" style="--reveal-delay: 100ms">
+      <a
+        href={LINKS.email}
+        class="inline-flex items-center gap-2 rounded-md bg-accent px-8 py-3 text-sm font-semibold text-background transition-all duration-300 hover:bg-accent-bright focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+      >
+        <Icon name="lucide:mail" class="h-4 w-4" aria-hidden="true" />
+        Email Me
+      </a>
+      <a
+        href={LINKS.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-md border border-line px-8 py-3 text-sm font-semibold text-ink transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+      >
+        <BrandIcon name="linkedin" class="h-4 w-4" />
+        LinkedIn
+      </a>
+      <a
+        href={LINKS.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-md border border-line px-8 py-3 text-sm font-semibold text-ink transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+      >
+        <BrandIcon name="github" class="h-4 w-4" />
+        GitHub
+      </a>
+      <a
+        href={RESUME_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-md border border-line px-8 py-3 text-sm font-semibold text-muted transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+      >
+        <Icon name="lucide:download" class="h-4 w-4" aria-hidden="true" />
+        Resume
+      </a>
+    </div>
+
+    <div class="reveal mt-10 break-all text-sm text-muted" style="--reveal-delay: 180ms">
+      <Icon name="lucide:mail" class="mr-2 inline h-4 w-4 text-accent" aria-hidden="true" />
+      {LINKS.emailDisplay}
+    </div>
+  </div>
+</section>

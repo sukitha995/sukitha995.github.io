@@ -1,0 +1,74 @@
+---
+import { Icon } from 'astro-icon/components'
+import { LINKS, NAV_LINKS } from '../data.js'
+---
+
+<section id="about" class="scroll-mt-24 border-b border-line">
+  <div class="mx-auto max-w-6xl px-6 py-24">
+    <div class="reveal mx-auto mb-12 max-w-2xl text-center">
+      <p class="mb-2 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-accent">
+        <Icon name="lucide:sparkles" class="h-3.5 w-3.5" aria-hidden="true" />
+        About
+      </p>
+      <h2 class="text-3xl font-bold sm:text-4xl">Engineering Data into Decisions</h2>
+      <p class="mt-4 text-muted">
+        Computer Science Engineering focused on practical, business-driven technology.
+      </p>
+    </div>
+
+    <div class="grid items-start gap-10 lg:grid-cols-5">
+      <div class="space-y-5 leading-relaxed text-muted lg:col-span-3">
+        <div class="reveal" style="--reveal-delay: 50ms">
+          <p>
+            I'm Kothuru Sukitha, a Computer Science graduate specializing in AI and cloud
+            computing, designing intelligent, scalable systems that drive business impact and
+            innovation.
+          </p>
+        </div>
+        <div class="reveal" style="--reveal-delay: 120ms">
+          <p>
+            My work sits at the intersection of software development, data analytics, and machine
+            learning — building practical solutions whether on the algorithmic side or in
+            production tooling.
+          </p>
+        </div>
+        <div class="reveal" style="--reveal-delay: 190ms">
+          <div class="rounded-lg border border-line bg-card p-5">
+            <div class="mb-3 flex items-center gap-2 font-semibold text-accent">
+              <Icon name="lucide:graduation-cap" class="h-[18px] w-[18px]" aria-hidden="true" />
+              Computer Science Engineering
+            </div>
+            <p class="text-sm">
+              Rooted in core computer science principles — algorithms, data structures, and systems
+              design — applied through AI/ML, analytics, and cloud-native development.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-2">
+        {
+          ['Software Engineering', 'AI / Machine Learning', 'Data Analytics', 'Cloud Computing'].map(
+            (text, i) => (
+              <div
+                class="reveal group flex items-center gap-4 rounded-lg border border-line bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-lg hover:shadow-accent/5"
+                style={`--reveal-delay: ${(i + 1) * 60}ms`}
+              >
+                <span
+                  class="flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-accent/30 bg-background text-accent transition-transform duration-300 group-hover:scale-110"
+                >
+                  <Icon
+                    name={i === 0 ? 'lucide:code-2' : i === 1 ? 'lucide:brain' : i === 2 ? 'lucide:bar-chart-3' : 'lucide:cloud'}
+                    class="h-5 w-5"
+                    aria-hidden="true"
+                  />
+                </span>
+                <span class="font-medium">{text}</span>
+              </div>
+            )
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

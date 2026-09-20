@@ -1,0 +1,99 @@
+---
+import { Icon } from 'astro-icon/components'
+import { RESUME_URL, LINKS } from '../data.js'
+import BrandIcon from './BrandIcon.astro'
+---
+
+<section id="home" class="scroll-mt-24 border-b border-line relative overflow-hidden">
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pb-20 pt-36 md:grid-cols-2">
+    <div>
+      <div class="hero-fade">
+        <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-line px-4 py-1 text-xs font-medium tracking-wide text-accent">
+          <Icon name="lucide:sparkles" class="h-3.5 w-3.5" aria-hidden="true" />
+          Software · Data · AI · Cloud
+        </p>
+        <h1 class="text-4xl font-bold leading-tight sm:text-5xl">Kothuru Sukitha</h1>
+        <p
+          id="role-title"
+          data-text="Computer Science & AI/ML Engineer"
+          class="hero-role mt-3 text-2xl font-semibold sm:text-3xl"
+          aria-label="Computer Science and AI/ML Engineer"
+        ></p>
+        <p class="mt-5 max-w-xl leading-relaxed text-muted">
+          Computer Science graduate specializing in AI and cloud computing, designing intelligent,
+          scalable systems that drive business impact and innovation.
+        </p>
+      </div>
+
+      <div class="hero-fade mt-8 flex flex-wrap gap-4" style="animation-delay: 120ms">
+        <a
+          href="#projects"
+          class="group inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-background transition-all duration-300 hover:bg-accent-bright focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+        >
+          View My Projects
+          <Icon
+            name="lucide:arrow-down"
+            class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1"
+            aria-hidden="true"
+          />
+        </a>
+        <a
+          href="#contact"
+          class="rounded-md border border-line px-6 py-3 text-sm font-semibold text-ink transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          Contact Me
+        </a>
+        <a
+          href={RESUME_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-md border border-line px-6 py-3 text-sm font-semibold text-muted transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          <Icon name="lucide:download" class="h-4 w-4" aria-hidden="true" />
+          Resume
+        </a>
+      </div>
+
+      <div class="hero-fade mt-8 flex items-center gap-3" style="animation-delay: 220ms">
+        <a
+          href={LINKS.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub profile (opens in a new tab)"
+          class="flex h-11 w-11 items-center justify-center rounded-md border border-line text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          <BrandIcon name="github" class="h-[19px] w-[19px]" />
+        </a>
+        <a
+          href={LINKS.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile (opens in a new tab)"
+          class="flex h-11 w-11 items-center justify-center rounded-md border border-line text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          <BrandIcon name="linkedin" class="h-[19px] w-[19px]" />
+        </a>
+        <a
+          href={LINKS.email}
+          aria-label="Send email"
+          class="flex h-11 w-11 items-center justify-center rounded-md border border-line text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          <Icon name="lucide:mail" class="h-[19px] w-[19px]" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-fade flex justify-center md:justify-end" style="animation-delay: 180ms">
+      <div class="relative">
+        <div class="absolute -inset-5 rounded-2xl bg-accent/10 blur-2xl" aria-hidden="true"></div>
+        <img
+          src="/profile.jpg"
+          alt="Portrait of Kothuru Sukitha"
+          onerror="this.onerror=null;this.src='/profile-placeholder.svg'"
+          class="relative aspect-[4/5] w-64 rounded-2xl border border-line object-cover shadow-2xl sm:w-72"
+        />
+      </div>
+    </div>
+  </div>
+</section>
