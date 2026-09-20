@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 540" width="480" height="540" role="img" aria-labelledby="title desc">
+  <title id="title">Kothuru Sukitha — professional headshot placeholder</title>
+  <desc id="desc">A clean placeholder silhouette with the initials KS, ready to be replaced with a real photograph.</desc>
+  <rect width="480" height="540" rx="24" fill="#111827"/>
+  <circle cx="240" cy="216" r="92" fill="#1e293b"/>
+  <path d="M240 340c-84 0-132 46-140 112l-8 40a8 8 0 0 0 8 9h280a8 8 0 0 0 8-9l-8-40c-8-66-56-112-140-112z" fill="#1e293b"/>
+  <circle cx="240" cy="216" r="92" fill="none" stroke="#06b6d4" stroke-width="3"/>
+  <text x="240" y="238" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="76" font-weight="700" fill="#06b6d4">KS</text>
+</svg>
