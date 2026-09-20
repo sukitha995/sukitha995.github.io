@@ -118,6 +118,33 @@ export const EDUCATION = [
   }
 ]
 
+export const CERTIFICATIONS = [
+  {
+    id: 'azure',
+    name: 'Microsoft Certified: Azure Data Fundamentals (DP-900)',
+    issuer: 'Microsoft',
+    file: './certificates/azure.pdf',
+    drive:
+      'https://drive.google.com/file/d/1nAU7iSpvup2IEYZoXBNR0IyGEhd5MTRc/view?usp=sharing'
+  },
+  {
+    id: 'oracle-java',
+    name: 'Oracle Certified Foundation Associate, Java',
+    issuer: 'Oracle',
+    file: './certificates/oracle-java.pdf',
+    drive:
+      'https://drive.google.com/file/d/1EIEEKriM-DN4ZOjI4b8qYmvt3pmRo6fl/view?usp=sharing'
+  },
+  {
+    id: 'oracle-genai',
+    name: 'Oracle Generative AI Certified Professional',
+    issuer: 'Oracle',
+    file: './certificates/oracle-genai.pdf',
+    drive:
+      'https://drive.google.com/file/d/1W1-Zr6L5KwgsoUVD9pi5OHSkbhN7Bd4V/view?usp=sharing'
+  }
+]
+
 export const ACHIEVEMENTS = [
   {
     badge: 'Finalist (Top 8 out of 148 teams)',
